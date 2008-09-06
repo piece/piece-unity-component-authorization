@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Piece_Unity_Component_Authorization</name>
+ <channel>pear.piece-framework.com</channel>
+ <summary>A URI based authorization component</summary>
+ <description>Piece_Unity_Component_Authorization is a URI based authorization component.
+
+Piece_Unity_Component_Authorization allows you to restrict requests based on URI patterns with user-defined rules.</description>
+ <lead>
+  <name>KUBO Atsuhiro</name>
+  <user>iteman</user>
+  <email>iteman@users.sourceforge.net</email>
+  <active>yes</active>
+ </lead>
+ <date>2008-09-06</date>
+ <time>17:04:00</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License (revised)</license>
+ <notes>The first beta release of Piece_Unity_Component_Authorization.</notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="docs">
+    <file name="LICENSE" role="doc">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /docs -->
+   <dir name="Piece">
+    <dir name="Unity">
+     <dir name="Plugin">
+      <dir name="Interceptor">
+       <file name="Authorization.php" role="php">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /Piece/Unity/Plugin/Interceptor -->
+     </dir> <!-- /Piece/Unity/Plugin -->
+    </dir> <!-- /Piece/Unity -->
+   </dir> <!-- /Piece -->
+   <dir name="tests">
+    <dir name="Piece">
+     <dir name="Unity">
+      <dir name="Plugin">
+       <dir name="Interceptor">
+        <dir name="AuthorizationTestCase">
+         <file name="Authorization.php" role="test">
+          <tasks:replace from="@package_version@" to="version" type="package-info" />
+         </file>
+        </dir> <!-- /tests/Piece/Unity/Plugin/Interceptor/AuthorizationTestCase -->
+        <file name="AuthorizationTestCase.php" role="test">
+         <tasks:replace from="@package_version@" to="version" type="package-info" />
+        </file>
+       </dir> <!-- /tests/Piece/Unity/Plugin/Interceptor -->
+      </dir> <!-- /tests/Piece/Unity/Plugin -->
+     </dir> <!-- /tests/Piece/Unity -->
+    </dir> <!-- /tests/Piece -->
+    <file name="prepare.php" role="test">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /tests -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.3</min>
+   </pearinstaller>
+   <package>
+    <name>Piece_Unity</name>
+    <channel>pear.piece-framework.com</channel>
+    <min>1.5.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>1.1.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2008-09-06</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License (revised)</license>
+   <notes>A new release of Piece_Unity_Component_Authorization is now available.
+
+What&apos;s New in Piece_Unity_Component_Authorization 1.1.0
+
+ * includes/excludes: Two configuration points &quot;includes&quot; and &quot;excludes&quot; have been added. &quot;includes&quot; allows you to mark multiple URIs as protected resources by regexp. This configuration point behave same as &quot;resourcesMatch&quot;. &quot;excludes&quot; allows you to mark multiple URIs as non-protected resources by regexp. And also the authentication URI has always been excluded from the protected resources.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-09-06</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License (revised)</license>
+   <notes>The first beta release of Piece_Unity_Component_Authorization.</notes>
+  </release>
+ </changelog>
+</package>
