@@ -32,7 +32,7 @@
  * @subpackage Piece_Unity_Component_Authorization
  * @copyright  2008-2009 KUBO Atsuhiro <kubo@iteman.jp>
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License (revised)
- * @version    SVN: $Id$
+ * @version    GIT: $Id$
  * @see        Piece_Unity_Plugin_Interceptor_AuthorizationTestCase
  * @since      File available since Release 0.1.0
  */
