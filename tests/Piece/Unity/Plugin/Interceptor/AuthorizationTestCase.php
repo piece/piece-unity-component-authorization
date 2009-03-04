@@ -4,7 +4,7 @@
 /**
  * PHP versions 4 and 5
  *
- * Copyright (c) 2008 KUBO Atsuhiro <iteman@users.sourceforge.net>,
+ * Copyright (c) 2008-2009 KUBO Atsuhiro <iteman@users.sourceforge.net>,
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,7 +30,7 @@
  *
  * @package    Piece_Unity
  * @subpackage Piece_Unity_Component_Authorization
- * @copyright  2008 KUBO Atsuhiro <iteman@users.sourceforge.net>
+ * @copyright  2008-2009 KUBO Atsuhiro <iteman@users.sourceforge.net>
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License (revised)
  * @version    SVN: $Id$
  * @since      File available since Release 0.1.0
@@ -55,7 +55,7 @@ $GLOBALS['PIECE_UNITY_Plugin_Interceptor_AuthorizationTestCase_hasPermission'] =
  *
  * @package    Piece_Unity
  * @subpackage Piece_Unity_Component_Authorization
- * @copyright  2008 KUBO Atsuhiro <iteman@users.sourceforge.net>
+ * @copyright  2008-2009 KUBO Atsuhiro <iteman@users.sourceforge.net>
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License (revised)
  * @version    Release: @package_version@
  * @since      Class available since Release 0.1.0
@@ -87,7 +87,7 @@ class Piece_Unity_Plugin_Interceptor_AuthorizationTestCase extends PHPUnit_TestC
 
     function setUp()
     {
-        $this->_oldScriptName = $_SERVER['SCRIPT_NAME'];
+        $this->_oldScriptName = @$_SERVER['REQUEST_URI'];
         $this->_oldPluginDirectories = $GLOBALS['PIECE_UNITY_Plugin_Directories'];
         $this->_oldPluginPrefixes = $GLOBALS['PIECE_UNITY_Plugin_Prefixes'];
         Piece_Unity_Plugin_Factory::addPluginDirectory(dirname(__FILE__) . '/../../../..');
@@ -99,14 +99,14 @@ class Piece_Unity_Plugin_Interceptor_AuthorizationTestCase extends PHPUnit_TestC
     {
         $GLOBALS['PIECE_UNITY_Plugin_Prefixes'] = $this->_oldPluginPrefixes;
         $GLOBALS['PIECE_UNITY_Plugin_Directories'] = $this->_oldPluginDirectories;
-        $_SERVER['SCRIPT_NAME'] = $this->_oldScriptName;
+        $_SERVER['REQUEST_URI'] = $this->_oldScriptName;
         Piece_Unity_Error::clearErrors();
         Piece_Unity_Context::clear();
     }
 
     function testShouldAuthenticatePermissions()
     {
-        $_SERVER['SCRIPT_NAME'] = '/wiki/delete.php';
+        $_SERVER['REQUEST_URI'] = '/wiki/delete.php';
         $config = &new Piece_Unity_Config();
         $config->setConfiguration('Authorization',
                                   'permissions',
@@ -136,7 +136,7 @@ class Piece_Unity_Plugin_Interceptor_AuthorizationTestCase extends PHPUnit_TestC
 
     function testShouldAlwaysAuthenticateIfTheScriptNameIsNotListedInPermissions()
     {
-        $_SERVER['SCRIPT_NAME'] = '/foo/bar.php';
+        $_SERVER['REQUEST_URI'] = '/foo/bar.php';
         $config = &new Piece_Unity_Config();
         $config->setConfiguration('Authorization',
                                   'permissions',
@@ -158,7 +158,7 @@ class Piece_Unity_Plugin_Interceptor_AuthorizationTestCase extends PHPUnit_TestC
 
     function testShouldAlwaysAuthenticateIfTheScriptNameIsListedInExcludes()
     {
-        $_SERVER['SCRIPT_NAME'] = '/wiki/show.php';
+        $_SERVER['REQUEST_URI'] = '/wiki/show.php';
         $config = &new Piece_Unity_Config();
         $config->setConfiguration('Authorization',
                                   'permissions',
